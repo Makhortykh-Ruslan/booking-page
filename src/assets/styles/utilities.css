@@ -1,0 +1,26 @@
+@layer utilities {
+    .bg-app-gradient {
+        background-image:
+            /* 1. Ліва нижня пляма (тепла, більша) */
+                radial-gradient(
+                        circle 800px at 0% 100%,
+                        var(--color-primary-dark) 0%,
+                        transparent 100%
+                ),
+
+                    /* 2. Права верхня пляма (світліша) */
+                radial-gradient(
+                        circle 700px at 100% 0%,
+                        var(--color-primary) 0%,
+                        transparent 50%
+                ),
+
+                    /* 3. Основний вертикальний градієнт */
+                linear-gradient(
+                        to bottom,
+                        var(--color-primary-dark) 0%,
+                        var(--color-primary) 50%,
+                        var(--color-primary-dark) 100%
+                );
+    }
+}
