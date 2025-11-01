@@ -50,10 +50,12 @@
 :root {
     --color-primary: #e28f11;
     --color-primary-dark: #aa580d;
-    --color-bg-light: #fff7e0;
+    /*--color-bg-light: #fff7e0;*/
     --color-black: #16171B;
     --color-grey-light: #8F91A1;
     --color-disabled: #DADBE8;
+    --color-selected: #F7F7FC;
+    --color-red: #DE3A6B
 }
 
 html,

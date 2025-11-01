@@ -5,6 +5,7 @@ import { JSX } from 'react';
 import Avatar from '@/app/core/components/Avatar/Avatar';
 import Button from '@/app/core/components/Button/Button';
 import Card from '@/app/core/components/Card/Card';
+import DateCarousel from '@/app/core/components/DateCarousel/DateCarousel';
 import MobileHeader from '@/app/main/components/mobile-header/MobileHeader';
 
 export default function Page(): JSX.Element {
@@ -25,12 +26,16 @@ export default function Page(): JSX.Element {
           />
           <div>
             <p className="title-card text-[28px]">Book a Session</p>
-            <p className="text py-[8px] text-[16px] text-[var(--color-grey-light)]">
+            <p className="text text-[16px] text-[var(--color-grey-light)]">
               Choose a date and time that is convenient for you to e-meet your
               stylist
             </p>
           </div>
         </header>
+
+        <main className="mt-[32px] [@media(min-width:568px)]:px-[24px]">
+          <DateCarousel></DateCarousel>
+        </main>
 
         <footer className="mb-[40px] flex h-[60px] justify-center [@media(max-width:568px)]:mb-[12px]">
           <Button label="Confirm" disabled />
