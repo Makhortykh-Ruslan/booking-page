@@ -1,7 +1,60 @@
-@import '../styles/utilities.css';
-@import '../styles/variables.css';
-
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .bg-app-gradient {
+        background: linear-gradient(
+                29deg,
+                rgb(138, 70, 7) 12%,
+                rgba(226, 143, 17, 1) 34%,
+                rgba(226, 143, 17, 1) 76%,
+                rgba(170, 88, 13, 1) 94%
+        );
+    }
+
+    .bg-mobile-app-gradient {
+        background: #82460d;
+        background: linear-gradient(204deg, rgba(130, 70, 13, 1) 10%, rgba(226, 143, 17, 1) 53%, rgba(153, 79, 11, 1) 74%);
+    }
+}
+
+@layer components {
+    .title {
+        color: var(--color-bg-light);
+        font-family: Poppins, sans-serif;
+        font-size: 27px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    .title-card {
+        color: var(--color-black);
+        font-family: "Kaisei Tokumin";
+        font-size: 28px;
+        font-style: normal;
+        line-height: normal;
+    }
+
+    .text {
+        color: var(--color-bg-light);
+        font-family: Poppins, sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        font-feature-settings: 'liga' off, 'clig' off;
+    }
+}
+
+:root {
+    --color-primary: #e28f11;
+    --color-primary-dark: #aa580d;
+    --color-bg-light: #fff7e0;
+    --color-black: #16171B;
+    --color-grey-light: #8F91A1;
+    --color-disabled: #DADBE8;
+}
 
 html,
 body {

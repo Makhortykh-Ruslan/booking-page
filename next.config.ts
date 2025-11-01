@@ -1,8 +1,6 @@
-import type { NextConfig } from "next";
+import withSvgr from 'next-svgr';
 
-const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
-};
+/** @type {import('next').NextConfig} */
+const nextConfig = {};
 
-export default nextConfig;
+export default withSvgr(nextConfig);

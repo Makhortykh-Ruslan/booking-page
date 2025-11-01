@@ -1,16 +1,9 @@
+// prettier.config.js
 export default {
-    singleQuote: true,
-    trailingComma: 'all',
-    printWidth: 80,
-    tabWidth: 2,
-    semi: true,
-    jsxSingleQuote: true,
-    overrides: [
-        {
-            files: ['*.json', '*.yaml', '*.yml'],
-            options: {
-                tabWidth: 2,
-            },
-        },
-    ],
+  singleQuote: true,
+  trailingComma: 'all',
+  tabWidth: 2,
+  semi: true,
+  experimentalUseClient: true, // щоб 'use client' лишався зверху
+  plugins: ['prettier-plugin-tailwindcss'],
 };

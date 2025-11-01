@@ -8,6 +8,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import security from 'eslint-plugin-security';
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
+import eslintPluginTailwind from 'eslint-plugin-tailwindcss';
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
@@ -23,13 +24,11 @@ export default tseslint.config(
         typescript: {},
         node: {},
       },
+      tailwindcss: {
+        callees: ['classnames', 'clsx', 'ctl'],
+        config: 'tailwind.config.js',
+      },
     },
-
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.recommended,
-      next.configs['core-web-vitals'],
-    ],
 
     files: ['**/*.{js,jsx,ts,tsx}'],
 
@@ -50,10 +49,17 @@ export default tseslint.config(
       import: eslintPluginImport,
       'simple-import-sort': eslintPluginSimpleImportSort,
       'unused-imports': eslintPluginUnusedImports,
+      tailwindcss: eslintPluginTailwind,
       react,
       security,
       'jsx-a11y': jsxA11y,
     },
+
+    extends: [
+      js.configs.recommended,
+      ...tseslint.configs.recommended,
+      next.configs['core-web-vitals'],
+    ],
 
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -72,9 +78,9 @@ export default tseslint.config(
       'react/react-in-jsx-scope': 'off',
       'react/jsx-uses-react': 'error',
       'react/jsx-uses-vars': 'error',
-
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
+      'react-refresh/only-export-components': 'off',
 
       'prettier/prettier': ['error', prettierConfig],
 
@@ -99,7 +105,16 @@ export default tseslint.config(
       'jsx-a11y/no-static-element-interactions': 'warn',
 
       'no-console': ['warn', { allow: ['warn', 'error'] }],
-      'react-refresh/only-export-components': 'off',
+
+      'tailwindcss/classnames-order': 'warn',
+      'tailwindcss/no-custom-classname': 'off',
+      'tailwindcss/enforces-shorthand': 'off',
     },
+  },
+  {
+    plugins: {
+      tailwindcss: eslintPluginTailwind,
+    },
+    rules: eslintPluginTailwind.configs.recommended.rules,
   },
 );

@@ -1,6 +1,0 @@
-@layer utilities {
-    .bg-app-gradient {
-        background: #AA580D;
-        background: linear-gradient(29deg, rgba(170, 88, 13, 1) 12%, rgba(226, 143, 17, 1) 34%, rgba(226, 143, 17, 1) 76%, rgba(170, 88, 13, 1) 94%);
-    }
-}
