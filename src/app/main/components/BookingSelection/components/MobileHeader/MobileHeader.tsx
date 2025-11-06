@@ -5,24 +5,38 @@ import { JSX } from 'react';
 import Avatar from '@/app/core/components/Avatar/Avatar';
 import ClockIcon from '@/assets/icons/clock.svg';
 
-export default function MobileHeader(): JSX.Element {
+type MobileHeaderProps = {
+  title?: string;
+  subtitle?: string;
+  duration?: string;
+  avatarSrc?: string;
+  avatarName?: string;
+};
+
+export default function MobileHeader({
+  title = 'Cool session',
+  subtitle = 'Additional type',
+  duration = '30 min',
+  avatarSrc = '/images/avatar.png',
+  avatarName = 'Lia Con',
+}: MobileHeaderProps): JSX.Element {
   return (
-    <div className="z-[-1] mx-0 mb-[-20px] mt-auto flex w-full items-center justify-between overflow-hidden [@media(min-width:568px)]:hidden">
-      <div className="ml-[20px]">
+    <div className="z-[-1] mx-0 mb-[-20px] mt-auto flex w-full items-center justify-between overflow-hidden sm:hidden">
+      <div className="ml-5">
         <h1 className="title whitespace-nowrap text-[var(--color-white)]">
-          Cool session
+          {title}
         </h1>
-        <p className="text mt-[5px] whitespace-nowrap text-[var(--color-white)]">
-          Additional type
+        <p className="text mt-1 whitespace-nowrap text-[var(--color-white)]">
+          {subtitle}
         </p>
 
-        <div className="mt-[24px] inline-flex items-center gap-[8px] rounded-[80px] bg-white/15 px-[12px] py-[4px] backdrop-blur-[6px]">
-          <ClockIcon />
-          <p className="text text-[var(--color-white)]">30 min</p>
+        <div className="mt-6 inline-flex items-center gap-2 rounded-[80px] bg-white/15 px-3 py-1 backdrop-blur-[6px]">
+          <ClockIcon aria-hidden="true" />
+          <p className="text text-[var(--color-white)]">{duration}</p>
         </div>
       </div>
 
-      <Avatar src="/images/avatar.png" name="Lia Con" mode="mobile" />
+      <Avatar src={avatarSrc} name={avatarName} mode="mobile" />
     </div>
   );
 }

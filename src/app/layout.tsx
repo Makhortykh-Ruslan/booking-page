@@ -1,7 +1,7 @@
 import '../assets/styles/globals.css';
 
 import type { Metadata } from 'next';
-import React, { JSX } from 'react';
+import { JSX } from 'react';
 
 export const metadata: Metadata = {
   title: 'Booking Page',
@@ -13,7 +13,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>): JSX.Element {
   return (
     <html lang="en">
-      <body className="bg-app-gradient [@media(max-width:568px)]:bg-mobile-app-gradient">
+      <body className="bg-mobile-app-gradient sm:bg-app-gradient">
         {children}
       </body>
     </html>

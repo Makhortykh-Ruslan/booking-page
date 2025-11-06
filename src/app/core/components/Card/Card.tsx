@@ -1,14 +1,26 @@
-import React, { JSX, ReactNode } from 'react';
+import { JSX, ReactNode } from 'react';
+
+import clsx from 'clsx';
 
 type CardProps = {
   children: ReactNode;
   className?: string;
+
+  
 };
 
-export default function Card({ children, className }: CardProps): JSX.Element {
+export default function Card({
+  children,
+  className,
+}: CardProps): JSX.Element {
   return (
     <div
-      className={`w-full max-w-[568px] bg-white shadow-sm [@media(max-width:568px)]:rounded-b-none [@media(max-width:568px)]:rounded-t-[24px] [@media(max-width:568px)]:px-[20px] [@media(max-width:568px)]:pb-0 [@media(max-width:568px)]:pt-[32px] [@media(min-width:568px)]:rounded-[24px] [@media(min-width:568px)]:p-0 ${className ?? ''}`}
+      className={clsx(
+        'w-full max-w-[568px] bg-white shadow-sm',
+        'sm:rounded-[24px] sm:p-0',
+        'rounded-b-none rounded-t-[24px] px-5 pb-0 pt-8',
+        className,
+      )}
     >
       {children}
     </div>
